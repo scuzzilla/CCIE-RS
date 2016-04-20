@@ -1,0 +1,5 @@
+route-map SET_NOADVERTISE deny 10
+ match ip address prefix-list LOOPBACK
+ set community no-advertise
+!
+route-map SET_NOADVERTISE permit 20

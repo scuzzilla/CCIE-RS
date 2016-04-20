@@ -1,0 +1,53 @@
+hostname RR1
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ !address-family ipv6
+ !exit-address-family
+!         
+enable password cisco
+!
+username cisco privilege 15 secret 5 $1$hAIo$4n0UPGTJyYerkDw74nn2U1
+!
+interface GigabitEthernet0/0
+ description OOB Management
+ vrf forwarding Mgmt-intf
+ duplex auto
+ speed auto
+ media-type rj45
+ no cdp en
+ no shut
+exit
+!
+interface range GigabitEthernet0/0-1
+ no shut
+exit
+!
+!logging trap debugging
+!logging facility local3
+!logging host 172.16.1.142 vrf Mgmt-intf
+!
+line con 0
+ exec-timeout 0 0
+ password cisco
+line aux 0
+line vty 0 4
+ exec-timeout 720 0
+ password cisco
+ login local
+ transport input telnet ssh
+end
+!
+!
+!
+!interface gi0/0
+! no cdp en
+!end
+!
+!clear cdp table
+!
+wr
+!

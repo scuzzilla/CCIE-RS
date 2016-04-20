@@ -1,0 +1,23 @@
+router bgp 2
+ neighbor 10.0.0.1 route-map AS-PREP out
+exit
+!
+!
+!
+!R2# sh route-map AS-PREP 
+!route-map AS-PREP, permit, sequence 10
+!  Match clauses:
+!  Set clauses:
+!    as-path prepend 2
+!  Policy routing matches: 0 packets, 0 bytes
+!R2#
+
+!router bgp 2
+! neighbor 10.0.0.1 remote-as 1
+! neighbor 10.0.0.1 route-map MED out
+!      
+!route-map MED, permit, sequence 1
+!  Match clauses:
+!  Set clauses:
+!    metric 1000
+!  Policy routing matches: 0 packets, 0 bytes

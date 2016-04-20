@@ -1,0 +1,7 @@
+conf t
+line console 0
+exec-timeout 0
+exit
+no ip domain-lookup
+exit
+wr
