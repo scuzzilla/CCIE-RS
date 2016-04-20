@@ -6,7 +6,7 @@
         <entry key="AutoNetkit.enable_cdp" type="Boolean">true</entry>
         <entry key="AutoNetkit.infrastructure_only" type="Boolean">true</entry>
     </extensions>
-    <node name="R1" type="SIMPLE" subtype="IOSv" location="440,332" coordinate="44.621754096233246,-103.53515625">
+    <node name="R1" type="SIMPLE" subtype="IOSv" location="193,292" coordinate="44.621754096233246,-103.53515625">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
@@ -172,7 +172,7 @@ end</entry>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
     </node>
-    <node name="R2" type="SIMPLE" subtype="IOSv" location="697,211" coordinate="48.28319289548348,-92.2412109375">
+    <node name="R2" type="SIMPLE" subtype="IOSv" location="450,171" coordinate="48.28319289548348,-92.2412109375">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
@@ -361,7 +361,7 @@ end</entry>
         <interface id="1" name="GigabitEthernet0/2"/>
         <interface id="2" name="GigabitEthernet0/3"/>
     </node>
-    <node name="R3" type="SIMPLE" subtype="IOSv" location="689,463" coordinate="40.38002840251182,-92.5927734375">
+    <node name="R3" type="SIMPLE" subtype="IOSv" location="442,423" coordinate="40.38002840251182,-92.5927734375">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
@@ -549,7 +549,7 @@ end</entry>
         <interface id="1" name="GigabitEthernet0/2"/>
         <interface id="2" name="GigabitEthernet0/3"/>
     </node>
-    <node name="R4" type="SIMPLE" subtype="IOSv" location="857,333" coordinate="44.59046718130885,-85.2099609375">
+    <node name="R4" type="SIMPLE" subtype="IOSv" location="610,293" coordinate="44.59046718130885,-85.2099609375">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
@@ -724,9 +724,17 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
+        <interface id="2" name="GigabitEthernet0/3"/>
+    </node>
+    <node name="R5" type="SIMPLE" subtype="IOSv" location="821,294">
+        <extensions>
+            <entry key="static_serial_port_0" type="Integer">17004</entry>
+        </extensions>
+        <interface id="0" name="GigabitEthernet0/1"/>
     </node>
     <connection dst="/virl:topology/virl:node[2]/virl:interface[1]" src="/virl:topology/virl:node[1]/virl:interface[1]"/>
     <connection dst="/virl:topology/virl:node[4]/virl:interface[1]" src="/virl:topology/virl:node[2]/virl:interface[2]"/>
     <connection dst="/virl:topology/virl:node[4]/virl:interface[2]" src="/virl:topology/virl:node[3]/virl:interface[1]"/>
     <connection dst="/virl:topology/virl:node[1]/virl:interface[2]" src="/virl:topology/virl:node[3]/virl:interface[2]"/>
+    <connection dst="/virl:topology/virl:node[5]/virl:interface[1]" src="/virl:topology/virl:node[4]/virl:interface[3]"/>
 </topology>
