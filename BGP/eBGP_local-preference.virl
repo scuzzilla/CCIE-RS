@@ -11,7 +11,7 @@
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 11:12:06 UTC Thu Apr 21 2016
+! Last configuration change at 13:40:00 UTC Thu Apr 21 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -115,15 +115,28 @@ router bgp 1
  network 1.0.0.1 mask 255.255.255.255
  redistribute connected
  neighbor 10.0.0.2 remote-as 2
+ neighbor 10.0.0.2 send-community both
+ neighbor 10.0.0.2 route-map NO_EXPORT out
  neighbor 20.0.0.2 remote-as 2
+ neighbor 20.0.0.2 send-community both
+ neighbor 20.0.0.2 route-map NO_EXPORT out
 !
 ip forward-protocol nd
 !
+ip bgp-community new-format
 !
 no ip http server
 no ip http secure-server
 ip ssh server algorithm authentication password
 !
+!
+ip prefix-list LOOPBACK seq 5 permit 1.0.0.1/32
+!
+route-map NO_EXPORT permit 10
+ match ip address prefix-list LOOPBACK
+ set community no-export
+!
+route-map NO_EXPORT permit 20
 !
 !
 !
@@ -178,7 +191,7 @@ end</entry>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:33:05 UTC Wed Apr 20 2016
+! Last configuration change at 13:29:12 UTC Thu Apr 21 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -293,14 +306,17 @@ router bgp 2
  bgp default local-preference 200
  neighbor 3.0.0.1 remote-as 2
  neighbor 3.0.0.1 update-source Loopback0
+ neighbor 3.0.0.1 send-community both
  neighbor 4.0.0.1 remote-as 2
  neighbor 4.0.0.1 update-source Loopback0
  neighbor 4.0.0.1 next-hop-self
+ neighbor 4.0.0.1 send-community both
  neighbor 10.0.0.1 remote-as 1
  neighbor 10.0.0.1 route-map MED out
 !
 ip forward-protocol nd
 !
+ip bgp-community new-format
 !
 no ip http server
 no ip http secure-server
@@ -367,7 +383,7 @@ end</entry>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:33:01 UTC Wed Apr 20 2016
+! Last configuration change at 13:30:15 UTC Thu Apr 21 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -481,14 +497,17 @@ router bgp 2
  bgp log-neighbor-changes
  neighbor 2.0.0.1 remote-as 2
  neighbor 2.0.0.1 update-source Loopback0
+ neighbor 2.0.0.1 send-community both
  neighbor 4.0.0.1 remote-as 2
  neighbor 4.0.0.1 update-source Loopback0
  neighbor 4.0.0.1 next-hop-self
+ neighbor 4.0.0.1 send-community both
  neighbor 20.0.0.1 remote-as 1
  neighbor 20.0.0.1 route-map MED out
 !
 ip forward-protocol nd
 !
+ip bgp-community new-format
 !
 no ip http server
 no ip http secure-server
@@ -555,7 +574,7 @@ end</entry>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 11:08:50 UTC Thu Apr 21 2016
+! Last configuration change at 13:19:02 UTC Thu Apr 21 2016
 !
 version 15.6
 service timestamps debug datetime msec
