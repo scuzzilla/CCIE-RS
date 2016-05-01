@@ -181,7 +181,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:05:16 UTC Sun May 1 2016
+! Last configuration change at 18:26:40 UTC Sun May 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -338,6 +338,7 @@ router bgp 234
  address-family ipv4 vrf ISP_A
   neighbor 50.0.0.1 remote-as 7
   neighbor 50.0.0.1 activate
+  neighbor 50.0.0.1 as-override
  exit-address-family
 !
 ip forward-protocol nd
