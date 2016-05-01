@@ -8,7 +8,7 @@
         <entry key="AutoNetkit.enable_routing" type="Boolean">false</entry>
         <entry key="lxc.host.static_ip" type="String">172.16.1.100</entry>
     </extensions>
-    <node name="P" type="SIMPLE" subtype="IOSv" location="841,241">
+    <node name="P" type="SIMPLE" subtype="IOSv" location="564,173">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17004</entry>
             <entry key="config" type="String">!
@@ -177,7 +177,7 @@ end</entry>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
     </node>
-    <node name="PE1" type="SIMPLE" subtype="IOSv" location="680,344">
+    <node name="PE1" type="SIMPLE" subtype="IOSv" location="403,276">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
@@ -382,8 +382,9 @@ end</entry>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
         <interface id="2" name="GigabitEthernet0/3"/>
+        <interface id="3" name="GigabitEthernet0/4"/>
     </node>
-    <node name="PE2" type="SIMPLE" subtype="IOSv" location="1017,349">
+    <node name="PE2" type="SIMPLE" subtype="IOSv" location="740,281">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="config" type="String">!
@@ -588,8 +589,9 @@ end</entry>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
         <interface id="2" name="GigabitEthernet0/3"/>
+        <interface id="3" name="GigabitEthernet0/4"/>
     </node>
-    <node name="CE1" type="SIMPLE" subtype="IOSv" location="473,238">
+    <node name="CE1" type="SIMPLE" subtype="IOSv" location="196,170">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="config" type="String">!
@@ -746,7 +748,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE2" type="SIMPLE" subtype="IOSv" location="1288,226">
+    <node name="CE2" type="SIMPLE" subtype="IOSv" location="1011,158">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="config" type="String">!
@@ -903,7 +905,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE3" type="SIMPLE" subtype="IOSv" location="465,461">
+    <node name="CE3" type="SIMPLE" subtype="IOSv" location="162,297">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17005</entry>
             <entry key="config" type="String">!
@@ -1058,7 +1060,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE4" type="SIMPLE" subtype="IOSv" location="1270,466">
+    <node name="CE4" type="SIMPLE" subtype="IOSv" location="1007,312">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17006</entry>
             <entry key="config" type="String">!
@@ -1213,10 +1215,24 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
+    <node name="CE5" type="SIMPLE" subtype="IOSv" location="253,442">
+        <extensions>
+            <entry key="static_serial_port_0" type="Integer">17007</entry>
+        </extensions>
+        <interface id="0" name="GigabitEthernet0/1"/>
+    </node>
+    <node name="CE6" type="SIMPLE" subtype="IOSv" location="881,451">
+        <extensions>
+            <entry key="static_serial_port_0" type="Integer">17008</entry>
+        </extensions>
+        <interface id="0" name="GigabitEthernet0/1"/>
+    </node>
     <connection dst="/virl:topology/virl:node[2]/virl:interface[1]" src="/virl:topology/virl:node[4]/virl:interface[1]"/>
     <connection dst="/virl:topology/virl:node[1]/virl:interface[1]" src="/virl:topology/virl:node[2]/virl:interface[2]"/>
     <connection dst="/virl:topology/virl:node[3]/virl:interface[1]" src="/virl:topology/virl:node[1]/virl:interface[2]"/>
     <connection dst="/virl:topology/virl:node[5]/virl:interface[1]" src="/virl:topology/virl:node[3]/virl:interface[2]"/>
     <connection dst="/virl:topology/virl:node[2]/virl:interface[3]" src="/virl:topology/virl:node[6]/virl:interface[1]"/>
     <connection dst="/virl:topology/virl:node[3]/virl:interface[3]" src="/virl:topology/virl:node[7]/virl:interface[1]"/>
+    <connection dst="/virl:topology/virl:node[2]/virl:interface[4]" src="/virl:topology/virl:node[8]/virl:interface[1]"/>
+    <connection dst="/virl:topology/virl:node[3]/virl:interface[4]" src="/virl:topology/virl:node[9]/virl:interface[1]"/>
 </topology>
