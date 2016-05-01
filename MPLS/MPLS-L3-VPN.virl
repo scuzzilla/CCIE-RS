@@ -1255,12 +1255,314 @@ end</entry>
     <node name="CE5" type="SIMPLE" subtype="IOSv" location="253,442">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17007</entry>
+            <entry key="config" type="String">!
+! Last configuration change at 20:57:11 UTC Sun May 1 2016
+!
+version 15.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname CE5
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable password cisco
+!
+no aaa new-model
+ethernet lmi ce
+!
+!
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+username cisco privilege 15 secret 5 $1$AmUa$9R679gSomrSmaHL3poNce1
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 200.5.5.5 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description OOB Management
+ vrf forwarding Mgmt-intf
+ no ip address
+ duplex auto
+ speed auto
+ media-type rj45
+ no cdp enable
+!
+interface GigabitEthernet0/1
+ description "to PE1"
+ ip address 50.0.0.1 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router bgp 7
+ bgp log-neighbor-changes
+ network 200.5.5.5 mask 255.255.255.255
+ neighbor 50.0.0.2 remote-as 234
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+logging trap debugging
+logging facility local3
+logging host 172.16.1.142 vrf Mgmt-intf
+logging host 172.16.1.156 vrf Mgmt-intf
+!
+!
+!
+control-plane
+!
+banner exec `
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************`
+banner incoming `
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************`
+banner login `
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************`
+!
+line con 0
+ exec-timeout 0 0
+ password cisco
+line aux 0
+line vty 0 4
+ exec-timeout 720 0
+ password cisco
+ login local
+ transport input telnet ssh
+!
+no scheduler allocate
+!
+end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
     <node name="CE6" type="SIMPLE" subtype="IOSv" location="881,451">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17008</entry>
+            <entry key="config" type="String">!
+! Last configuration change at 20:56:41 UTC Sun May 1 2016
+!
+version 15.6
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname CE6
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable password cisco
+!
+no aaa new-model
+ethernet lmi ce
+!
+!
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+username cisco privilege 15 secret 5 $1$AmUa$9R679gSomrSmaHL3poNce1
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 200.6.6.6 255.255.255.255
+!
+interface GigabitEthernet0/0
+ description OOB Management
+ vrf forwarding Mgmt-intf
+ no ip address
+ duplex auto
+ speed auto
+ media-type rj45
+ no cdp enable
+!
+interface GigabitEthernet0/1
+ description "to PE2"
+ ip address 60.0.0.1 255.255.255.252
+ duplex auto
+ speed auto
+ media-type rj45
+!
+router bgp 7
+ bgp log-neighbor-changes
+ network 200.6.6.6 mask 255.255.255.255
+ neighbor 60.0.0.2 remote-as 234
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+logging trap debugging
+logging facility local3
+logging host 172.16.1.142 vrf Mgmt-intf
+logging host 172.16.1.156 vrf Mgmt-intf
+!
+!
+!
+control-plane
+!
+banner exec `
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************`
+banner incoming `
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************`
+banner login `
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************`
+!
+line con 0
+ exec-timeout 0 0
+ password cisco
+line aux 0
+line vty 0 4
+ exec-timeout 720 0
+ password cisco
+ login local
+ transport input telnet ssh
+!
+no scheduler allocate
+!
+end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
