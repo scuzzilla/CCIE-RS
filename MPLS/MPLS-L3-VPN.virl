@@ -12,7 +12,7 @@
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:28:43 UTC Sun May 1 2016
+! Last configuration change at 07:21:07 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -88,7 +88,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.142 255.255.255.0
+ ip address 172.16.1.153 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -127,6 +127,7 @@ logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
 logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -181,7 +182,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 18:26:40 UTC Sun May 1 2016
+! Last configuration change at 07:22:32 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -272,7 +273,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.151 255.255.255.0
+ ip address 172.16.1.162 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -351,6 +352,7 @@ logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
 logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -407,7 +409,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:13:12 UTC Sun May 1 2016
+! Last configuration change at 07:22:27 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -498,7 +500,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.150 255.255.255.0
+ ip address 172.16.1.161 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -576,6 +578,7 @@ logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
 logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -632,7 +635,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:28:46 UTC Sun May 1 2016
+! Last configuration change at 07:21:17 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -708,7 +711,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.143 255.255.255.0
+ ip address 172.16.1.154 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -736,6 +739,7 @@ logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
 logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -789,7 +793,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:29:09 UTC Sun May 1 2016
+! Last configuration change at 07:21:43 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -865,7 +869,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.145 255.255.255.0
+ ip address 172.16.1.156 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -893,6 +897,7 @@ logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
 logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -946,11 +951,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:29:02 UTC Sun May 1 2016
+! Last configuration change at 07:21:28 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname CE3
@@ -1021,7 +1026,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.144 255.255.255.0
+ ip address 172.16.1.155 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1048,6 +1053,7 @@ no ip http secure-server
 logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -1101,11 +1107,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17006</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:29:58 UTC Sun May 1 2016
+! Last configuration change at 07:22:08 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname CE4
@@ -1176,7 +1182,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.147 255.255.255.0
+ ip address 172.16.1.158 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1203,6 +1209,7 @@ no ip http secure-server
 logging trap debugging
 logging facility local3
 logging host 172.16.1.142 vrf Mgmt-intf
+logging host 172.16.1.148 vrf Mgmt-intf
 !
 !
 !
@@ -1256,7 +1263,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:57:11 UTC Sun May 1 2016
+! Last configuration change at 07:21:52 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1332,7 +1339,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- no ip address
+ ip address 172.16.1.157 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1413,7 +1420,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:56:41 UTC Sun May 1 2016
+! Last configuration change at 07:22:10 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1489,7 +1496,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- no ip address
+ ip address 172.16.1.160 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
