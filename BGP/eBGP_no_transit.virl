@@ -177,7 +177,7 @@ end</entry>
             <entry key="static_serial_port_0" type="Integer">17020</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 19:42:43 UTC Mon May 2 2016
+! Last configuration change at 19:58:21 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -273,14 +273,19 @@ router bgp 2
  bgp log-neighbor-changes
  network 2.2.2.2 mask 255.255.255.255
  neighbor 10.0.0.1 remote-as 1
+ neighbor 10.0.0.1 route-map AS_PATH_FILTER in
 !
 ip forward-protocol nd
 !
+ip as-path access-list 1 permit ^1$
 !
 no ip http server
 no ip http secure-server
 ip ssh server algorithm authentication password
 !
+!
+route-map AS_PATH_FILTER permit 10
+ match as-path 1
 !
 !
 !
@@ -334,7 +339,7 @@ end</entry>
             <entry key="static_serial_port_0" type="Integer">17030</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 19:43:52 UTC Mon May 2 2016
+! Last configuration change at 20:10:07 UTC Mon May 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -430,14 +435,19 @@ router bgp 3
  bgp log-neighbor-changes
  network 3.3.3.3 mask 255.255.255.255
  neighbor 20.0.0.1 remote-as 1
+ neighbor 20.0.0.1 route-map AS_PATH_FILTER in
 !
 ip forward-protocol nd
 !
+ip as-path access-list 1 permit ^1$
 !
 no ip http server
 no ip http secure-server
 ip ssh server algorithm authentication password
 !
+!
+route-map AS_PATH_FILTER permit 10
+ match as-path 1
 !
 !
 !
