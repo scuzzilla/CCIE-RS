@@ -218,7 +218,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:25:56 UTC Wed May 4 2016
+! Last configuration change at 07:43:05 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -354,16 +354,12 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
- neighbor 4.4.4.4 remote-as 234
- neighbor 4.4.4.4 update-source Loopback0
  neighbor 20.0.0.6 remote-as 234
  neighbor 20.0.0.6 update-source Loopback0
  neighbor 20.0.0.7 remote-as 234
  neighbor 20.0.0.7 update-source Loopback0
  !
  address-family vpnv4
-  neighbor 4.4.4.4 activate
-  neighbor 4.4.4.4 send-community extended
   neighbor 20.0.0.6 activate
   neighbor 20.0.0.6 send-community extended
   neighbor 20.0.0.6 next-hop-self
@@ -456,7 +452,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:29:35 UTC Wed May 4 2016
+! Last configuration change at 07:47:28 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -592,16 +588,12 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
- neighbor 2.2.2.2 remote-as 234
- neighbor 2.2.2.2 update-source Loopback0
  neighbor 20.0.0.5 remote-as 234
  neighbor 20.0.0.5 update-source Loopback0
  neighbor 20.0.0.8 remote-as 234
  neighbor 20.0.0.8 update-source Loopback0
  !
  address-family vpnv4
-  neighbor 2.2.2.2 activate
-  neighbor 2.2.2.2 send-community extended
   neighbor 20.0.0.5 activate
   neighbor 20.0.0.5 send-community extended
   neighbor 20.0.0.5 next-hop-self
