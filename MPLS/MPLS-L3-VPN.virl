@@ -12,7 +12,7 @@
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:37:58 UTC Tue May 3 2016
+! Last configuration change at 06:40:12 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -88,7 +88,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.182 255.255.255.0
+ ip address 172.16.1.196 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -113,31 +113,39 @@ interface GigabitEthernet0/2
  mpls ip
 !
 interface GigabitEthernet0/3
- no ip address
+ description "to RR4-B"
+ ip address 44.0.0.2 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/4
- no ip address
+ description "to RR3-B"
+ ip address 33.0.0.2 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/5
- no ip address
+ description "to RR1-A"
+ ip address 11.0.0.2 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/6
- no ip address
+ description "to RR2-A"
+ ip address 22.0.0.2 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
 !
 router ospf 1
  network 3.3.3.3 0.0.0.0 area 0
+ network 11.0.0.0 0.0.0.3 area 0
+ network 22.0.0.0 0.0.0.3 area 0
+ network 33.0.0.0 0.0.0.3 area 0
+ network 44.0.0.0 0.0.0.3 area 0
  network 192.168.23.0 0.0.0.255 area 0
  network 192.168.34.0 0.0.0.255 area 0
 !
@@ -210,7 +218,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:32:20 UTC Tue May 3 2016
+! Last configuration change at 21:58:03 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -301,7 +309,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.176 255.255.255.0
+ ip address 172.16.1.190 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -437,7 +445,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:32:38 UTC Tue May 3 2016
+! Last configuration change at 21:58:35 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -528,7 +536,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.183 255.255.255.0
+ ip address 172.16.1.198 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -663,7 +671,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:32:14 UTC Tue May 3 2016
+! Last configuration change at 21:58:06 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -739,7 +747,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.177 255.255.255.0
+ ip address 172.16.1.191 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -821,7 +829,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:31:52 UTC Tue May 3 2016
+! Last configuration change at 21:57:28 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -897,7 +905,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.175 255.255.255.0
+ ip address 172.16.1.189 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -979,7 +987,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:30:50 UTC Tue May 3 2016
+! Last configuration change at 21:57:10 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1054,7 +1062,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.173 255.255.255.0
+ ip address 172.16.1.188 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1135,7 +1143,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17006</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:32:27 UTC Tue May 3 2016
+! Last configuration change at 21:58:08 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1210,7 +1218,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.180 255.255.255.0
+ ip address 172.16.1.194 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1291,7 +1299,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:32:29 UTC Tue May 3 2016
+! Last configuration change at 21:58:27 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1367,7 +1375,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.181 255.255.255.0
+ ip address 172.16.1.195 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1448,7 +1456,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:32:30 UTC Tue May 3 2016
+! Last configuration change at 21:57:59 UTC Tue May 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1524,7 +1532,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.178 255.255.255.0
+ ip address 172.16.1.192 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -1605,7 +1613,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17011</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:49:23 UTC Tue May 3 2016
+! Last configuration change at 07:13:28 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1648,6 +1656,7 @@ mmi snmp-timeout 180
 !
 !
 !
+no ip domain lookup
 ip cef
 no ipv6 cef
 !
@@ -1674,19 +1683,37 @@ redundancy
 !
 !
 !
+interface Loopback0
+ ip address 20.0.0.5 255.255.255.255
+!
 interface GigabitEthernet0/0
+ description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.202 255.255.255.0
+ ip address 172.16.1.199 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
  no cdp enable
 !
 interface GigabitEthernet0/1
- no ip address
+ description "to P"
+ ip address 33.0.0.1 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ network 20.0.0.5 0.0.0.0 area 0
+ network 33.0.0.0 0.0.0.3 area 0
+!
+router bgp 234
+ bgp log-neighbor-changes
+ neighbor 20.0.0.6 remote-as 234
+ neighbor 20.0.0.6 update-source Loopback0
+ neighbor 20.0.0.7 remote-as 234
+ neighbor 20.0.0.7 update-source Loopback0
+ neighbor 20.0.0.8 remote-as 234
+ neighbor 20.0.0.8 update-source Loopback0
 !
 ip forward-protocol nd
 !
@@ -1752,7 +1779,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17012</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:28:59 UTC Tue May 3 2016
+! Last configuration change at 07:14:46 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1795,6 +1822,7 @@ mmi snmp-timeout 180
 !
 !
 !
+no ip domain lookup
 ip cef
 no ipv6 cef
 !
@@ -1821,19 +1849,37 @@ redundancy
 !
 !
 !
+interface Loopback0
+ ip address 20.0.0.8 255.255.255.255
+!
 interface GigabitEthernet0/0
+ description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.203 255.255.255.0
+ ip address 172.16.1.197 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
  no cdp enable
 !
 interface GigabitEthernet0/1
- no ip address
+ description "to P"
+ ip address 44.0.0.1 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ network 20.0.0.8 0.0.0.0 area 0
+ network 44.0.0.0 0.0.0.3 area 0
+!
+router bgp 234
+ bgp log-neighbor-changes
+ neighbor 20.0.0.5 remote-as 234
+ neighbor 20.0.0.5 update-source Loopback0
+ neighbor 20.0.0.6 remote-as 234
+ neighbor 20.0.0.6 update-source Loopback0
+ neighbor 20.0.0.7 remote-as 234
+ neighbor 20.0.0.7 update-source Loopback0
 !
 ip forward-protocol nd
 !
@@ -1899,7 +1945,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:51:03 UTC Tue May 3 2016
+! Last configuration change at 07:09:58 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1942,6 +1988,7 @@ mmi snmp-timeout 180
 !
 !
 !
+no ip domain lookup
 ip cef
 no ipv6 cef
 !
@@ -1968,19 +2015,36 @@ redundancy
 !
 !
 !
+interface Loopback0
+ ip address 20.0.0.6 255.255.255.255
+!
 interface GigabitEthernet0/0
+ description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.200 255.255.255.0
+ ip address 172.16.1.187 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
  no cdp enable
 !
 interface GigabitEthernet0/1
- no ip address
+ ip address 11.0.0.1 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ network 11.0.0.0 0.0.0.3 area 0
+ network 20.0.0.6 0.0.0.0 area 0
+!
+router bgp 234
+ bgp log-neighbor-changes
+ neighbor 20.0.0.5 remote-as 234
+ neighbor 20.0.0.5 update-source Loopback0
+ neighbor 20.0.0.7 remote-as 234
+ neighbor 20.0.0.7 update-source Loopback0
+ neighbor 20.0.0.8 remote-as 234
+ neighbor 20.0.0.8 update-source Loopback0
 !
 ip forward-protocol nd
 !
@@ -2046,7 +2110,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17010</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:48:32 UTC Tue May 3 2016
+! Last configuration change at 07:14:07 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2089,6 +2153,7 @@ mmi snmp-timeout 180
 !
 !
 !
+no ip domain lookup
 ip cef
 no ipv6 cef
 !
@@ -2115,19 +2180,37 @@ redundancy
 !
 !
 !
+interface Loopback0
+ ip address 20.0.0.7 255.255.255.255
+!
 interface GigabitEthernet0/0
+ description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.201 255.255.255.0
+ ip address 172.16.1.186 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
  no cdp enable
 !
 interface GigabitEthernet0/1
- no ip address
+ description "to P"
+ ip address 22.0.0.1 255.255.255.252
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ network 20.0.0.7 0.0.0.0 area 0
+ network 22.0.0.0 0.0.0.3 area 0
+!
+router bgp 234
+ bgp log-neighbor-changes
+ neighbor 20.0.0.5 remote-as 234
+ neighbor 20.0.0.5 update-source Loopback0
+ neighbor 20.0.0.6 remote-as 234
+ neighbor 20.0.0.6 update-source Loopback0
+ neighbor 20.0.0.8 remote-as 234
+ neighbor 20.0.0.8 update-source Loopback0
 !
 ip forward-protocol nd
 !
