@@ -12,7 +12,7 @@
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 06:40:12 UTC Wed May 4 2016
+! Last configuration change at 10:21:47 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -157,9 +157,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -218,7 +216,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:43:05 UTC Wed May 4 2016
+! Last configuration change at 10:26:01 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -354,10 +352,14 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
+ no bgp default ipv4-unicast
  neighbor 20.0.0.6 remote-as 234
  neighbor 20.0.0.6 update-source Loopback0
  neighbor 20.0.0.7 remote-as 234
  neighbor 20.0.0.7 update-source Loopback0
+ !
+ address-family ipv4
+ exit-address-family
  !
  address-family vpnv4
   neighbor 20.0.0.6 activate
@@ -393,9 +395,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -452,7 +452,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:47:28 UTC Wed May 4 2016
+! Last configuration change at 10:29:45 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -588,10 +588,14 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
+ no bgp default ipv4-unicast
  neighbor 20.0.0.5 remote-as 234
  neighbor 20.0.0.5 update-source Loopback0
  neighbor 20.0.0.8 remote-as 234
  neighbor 20.0.0.8 update-source Loopback0
+ !
+ address-family ipv4
+ exit-address-family
  !
  address-family vpnv4
   neighbor 20.0.0.5 activate
@@ -626,9 +630,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -685,7 +687,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:58:06 UTC Tue May 3 2016
+! Last configuration change at 10:47:51 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -777,6 +779,7 @@ interface GigabitEthernet0/1
 router bgp 1
  bgp log-neighbor-changes
  network 1.1.1.1 mask 255.255.255.255
+ redistribute connected
  neighbor 192.168.12.2 remote-as 234
 !
 ip forward-protocol nd
@@ -787,9 +790,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -843,7 +844,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:57:28 UTC Tue May 3 2016
+! Last configuration change at 10:49:22 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -935,6 +936,7 @@ interface GigabitEthernet0/1
 router bgp 5
  bgp log-neighbor-changes
  network 5.5.5.5 mask 255.255.255.255
+ redistribute connected
  neighbor 192.168.45.4 remote-as 234
 !
 ip forward-protocol nd
@@ -945,9 +947,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1001,7 +1001,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:57:10 UTC Tue May 3 2016
+! Last configuration change at 10:45:20 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1102,8 +1102,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1157,7 +1156,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17006</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:58:08 UTC Tue May 3 2016
+! Last configuration change at 10:43:21 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1258,8 +1257,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1313,11 +1311,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:58:27 UTC Tue May 3 2016
+! Last configuration change at 10:41:19 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname CE5
@@ -1415,8 +1413,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1470,11 +1467,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:57:59 UTC Tue May 3 2016
+! Last configuration change at 10:39:48 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname CE6
@@ -1572,8 +1569,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1627,11 +1623,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17011</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:40:52 UTC Wed May 4 2016
+! Last configuration change at 10:36:35 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname RR3-B
@@ -1722,6 +1718,7 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
+ no bgp default ipv4-unicast
  neighbor RR_CLIENT peer-group
  neighbor RR_CLIENT remote-as 234
  neighbor RR_CLIENT update-source Loopback0
@@ -1733,10 +1730,19 @@ router bgp 234
  neighbor 20.0.0.8 remote-as 234
  neighbor 20.0.0.8 update-source Loopback0
  !
+ address-family ipv4
+ exit-address-family
+ !
  address-family vpnv4
   neighbor RR_CLIENT send-community both
   neighbor RR_CLIENT route-reflector-client
   neighbor 4.4.4.4 activate
+  neighbor 20.0.0.6 activate
+  neighbor 20.0.0.6 send-community both
+  neighbor 20.0.0.7 activate
+  neighbor 20.0.0.7 send-community both
+  neighbor 20.0.0.8 activate
+  neighbor 20.0.0.8 send-community both
  exit-address-family
 !
 ip forward-protocol nd
@@ -1748,9 +1754,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1804,11 +1808,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17012</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:42:01 UTC Wed May 4 2016
+! Last configuration change at 10:38:09 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname RR4-B
@@ -1899,6 +1903,7 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
+ no bgp default ipv4-unicast
  neighbor RR_CLIENT peer-group
  neighbor RR_CLIENT remote-as 234
  neighbor RR_CLIENT update-source Loopback0
@@ -1910,10 +1915,19 @@ router bgp 234
  neighbor 20.0.0.7 remote-as 234
  neighbor 20.0.0.7 update-source Loopback0
  !
+ address-family ipv4
+ exit-address-family
+ !
  address-family vpnv4
   neighbor RR_CLIENT send-community both
   neighbor RR_CLIENT route-reflector-client
   neighbor 4.4.4.4 activate
+  neighbor 20.0.0.5 activate
+  neighbor 20.0.0.5 send-community both
+  neighbor 20.0.0.6 activate
+  neighbor 20.0.0.6 send-community both
+  neighbor 20.0.0.7 activate
+  neighbor 20.0.0.7 send-community both
  exit-address-family
 !
 ip forward-protocol nd
@@ -1925,9 +1939,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -1981,11 +1993,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:35:56 UTC Wed May 4 2016
+! Last configuration change at 10:34:19 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname RR1-A
@@ -2075,6 +2087,7 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
+ no bgp default ipv4-unicast
  neighbor RR_CLIENT peer-group
  neighbor RR_CLIENT remote-as 234
  neighbor RR_CLIENT update-source Loopback0
@@ -2086,10 +2099,19 @@ router bgp 234
  neighbor 20.0.0.8 remote-as 234
  neighbor 20.0.0.8 update-source Loopback0
  !
+ address-family ipv4
+ exit-address-family
+ !
  address-family vpnv4
   neighbor RR_CLIENT send-community both
   neighbor RR_CLIENT route-reflector-client
   neighbor 2.2.2.2 activate
+  neighbor 20.0.0.5 activate
+  neighbor 20.0.0.5 send-community both
+  neighbor 20.0.0.7 activate
+  neighbor 20.0.0.7 send-community both
+  neighbor 20.0.0.8 activate
+  neighbor 20.0.0.8 send-community both
  exit-address-family
 !
 ip forward-protocol nd
@@ -2101,9 +2123,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
@@ -2157,11 +2177,11 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17010</entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:40:04 UTC Wed May 4 2016
+! Last configuration change at 10:38:32 UTC Wed May 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
-service timestamps log datetime msec
+service timestamps log datetime msec localtime show-timezone
 no service password-encryption
 !
 hostname RR2-A
@@ -2252,6 +2272,7 @@ router ospf 1
 !
 router bgp 234
  bgp log-neighbor-changes
+ no bgp default ipv4-unicast
  neighbor RR_CLIENT peer-group
  neighbor RR_CLIENT remote-as 234
  neighbor RR_CLIENT update-source Loopback0
@@ -2263,10 +2284,19 @@ router bgp 234
  neighbor 20.0.0.8 remote-as 234
  neighbor 20.0.0.8 update-source Loopback0
  !
+ address-family ipv4
+ exit-address-family
+ !
  address-family vpnv4
   neighbor RR_CLIENT send-community both
   neighbor RR_CLIENT route-reflector-client
   neighbor 2.2.2.2 activate
+  neighbor 20.0.0.5 activate
+  neighbor 20.0.0.5 send-community both
+  neighbor 20.0.0.6 activate
+  neighbor 20.0.0.6 send-community both
+  neighbor 20.0.0.8 activate
+  neighbor 20.0.0.8 send-community both
  exit-address-family
 !
 ip forward-protocol nd
@@ -2278,9 +2308,7 @@ no ip http secure-server
 !
 logging trap debugging
 logging facility local3
-logging host 172.16.1.142 vrf Mgmt-intf
-logging host 172.16.1.156 vrf Mgmt-intf
-logging host 172.16.1.148 vrf Mgmt-intf
+logging host 172.16.1.193 vrf Mgmt-intf
 !
 !
 !
