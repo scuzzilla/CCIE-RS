@@ -8,7 +8,7 @@
         <entry key="AutoNetkit.enable_routing" type="Boolean">false</entry>
         <entry key="lxc.host.static_ip" type="String">172.16.1.100</entry>
     </extensions>
-    <node name="P" type="SIMPLE" subtype="IOSv" location="728,310">
+    <node name="P" type="SIMPLE" subtype="IOSv" location="593,268">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17004</entry>
             <entry key="config" type="String">!
@@ -212,7 +212,7 @@ end</entry>
         <interface id="4" name="GigabitEthernet0/5"/>
         <interface id="5" name="GigabitEthernet0/6"/>
     </node>
-    <node name="PE1" type="SIMPLE" subtype="IOSv" location="567,413">
+    <node name="PE1" type="SIMPLE" subtype="IOSv" location="432,371">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17002</entry>
             <entry key="config" type="String">!
@@ -448,7 +448,7 @@ end</entry>
         <interface id="2" name="GigabitEthernet0/3"/>
         <interface id="3" name="GigabitEthernet0/4"/>
     </node>
-    <node name="PE2" type="SIMPLE" subtype="IOSv" location="904,418">
+    <node name="PE2" type="SIMPLE" subtype="IOSv" location="769,376">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17003</entry>
             <entry key="config" type="String">!
@@ -683,7 +683,7 @@ end</entry>
         <interface id="2" name="GigabitEthernet0/3"/>
         <interface id="3" name="GigabitEthernet0/4"/>
     </node>
-    <node name="CE1" type="SIMPLE" subtype="IOSv" location="360,307">
+    <node name="CE1" type="SIMPLE" subtype="IOSv" location="225,265">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17000</entry>
             <entry key="config" type="String">!
@@ -840,7 +840,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE2" type="SIMPLE" subtype="IOSv" location="1175,295">
+    <node name="CE2" type="SIMPLE" subtype="IOSv" location="1040,253">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17001</entry>
             <entry key="config" type="String">!
@@ -997,7 +997,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE3" type="SIMPLE" subtype="IOSv" location="326,434">
+    <node name="CE3" type="SIMPLE" subtype="IOSv" location="191,392">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17005</entry>
             <entry key="config" type="String">!
@@ -1152,7 +1152,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE4" type="SIMPLE" subtype="IOSv" location="1171,449">
+    <node name="CE4" type="SIMPLE" subtype="IOSv" location="1036,407">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17006</entry>
             <entry key="config" type="String">!
@@ -1307,7 +1307,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE5" type="SIMPLE" subtype="IOSv" location="417,579">
+    <node name="CE5" type="SIMPLE" subtype="IOSv" location="282,537">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17007</entry>
             <entry key="config" type="String">!
@@ -1463,7 +1463,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="CE6" type="SIMPLE" subtype="IOSv" location="1045,588">
+    <node name="CE6" type="SIMPLE" subtype="IOSv" location="910,546">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17008</entry>
             <entry key="config" type="String">!
@@ -1619,7 +1619,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="RR3-B" type="SIMPLE" subtype="IOSv" location="679,134">
+    <node name="RR3-B" type="SIMPLE" subtype="IOSv" location="544,92">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17011</entry>
             <entry key="config" type="String">!
@@ -1804,7 +1804,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="RR4-B" type="SIMPLE" subtype="IOSv" location="574,243">
+    <node name="RR4-B" type="SIMPLE" subtype="IOSv" location="439,201">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17012</entry>
             <entry key="config" type="String">!
@@ -1989,7 +1989,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="RR1-A" type="SIMPLE" subtype="IOSv" location="801,135">
+    <node name="RR1-A" type="SIMPLE" subtype="IOSv" location="666,93">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17009</entry>
             <entry key="config" type="String">!
@@ -2173,7 +2173,7 @@ end</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
-    <node name="RR2-A" type="SIMPLE" subtype="IOSv" location="891,244">
+    <node name="RR2-A" type="SIMPLE" subtype="IOSv" location="756,202">
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17010</entry>
             <entry key="config" type="String">!
