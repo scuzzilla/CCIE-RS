@@ -10,7 +10,7 @@
     </extensions>
     <node name="R1" type="SIMPLE" subtype="IOSv" location="245,284">
         <extensions>
-            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:03
+            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:21
 ! by autonetkit_0.21.4
 !
 hostname R1
@@ -87,12 +87,13 @@ interface GigabitEthernet0/1
 end
 </entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="static_serial_port_0" type="Integer">17021</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
     <node name="R2" type="SIMPLE" subtype="IOSv" location="461,287">
         <extensions>
-            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:03
+            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:21
 ! by autonetkit_0.21.4
 !
 hostname R2
@@ -177,13 +178,14 @@ interface GigabitEthernet0/2
 end
 </entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="static_serial_port_0" type="Integer">17022</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
     </node>
     <node name="R3" type="SIMPLE" subtype="IOSv" location="655,284">
         <extensions>
-            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:03
+            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:21
 ! by autonetkit_0.21.4
 !
 hostname R3
@@ -268,13 +270,14 @@ interface GigabitEthernet0/2
 end
 </entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="static_serial_port_0" type="Integer">17023</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
         <interface id="1" name="GigabitEthernet0/2"/>
     </node>
     <node name="R4" type="SIMPLE" subtype="IOSv" location="880,283">
         <extensions>
-            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:03
+            <entry key="config" type="string">! IOS Config generated on 2016-06-30 13:21
 ! by autonetkit_0.21.4
 !
 hostname R4
@@ -351,6 +354,7 @@ interface GigabitEthernet0/1
 end
 </entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="static_serial_port_0" type="Integer">17024</entry>
         </extensions>
         <interface id="0" name="GigabitEthernet0/1"/>
     </node>
