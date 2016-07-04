@@ -13,7 +13,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17021</entry>
             <entry key="config" type="String">!
-! Last configuration change at 10:15:07 UTC Fri Jul 1 2016
+! Last configuration change at 11:42:02 UTC Thu Jun 30 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -87,7 +87,6 @@ redundancy
 !
 interface Loopback0
  description Loopback
- ip address 172.16.1.1 255.255.255.255 secondary
  ip address 192.168.1.1 255.255.255.255
 !
 interface GigabitEthernet0/0
@@ -167,7 +166,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17022</entry>
             <entry key="config" type="String">!
-! Last configuration change at 12:34:09 UTC Thu Jun 30 2016
+! Last configuration change at 12:16:42 UTC Thu Jun 30 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -272,8 +271,6 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 ip route 30.3.3.0 255.255.255.252 GigabitEthernet0/2 20.2.2.2
-ip route 172.16.1.1 255.255.255.255 GigabitEthernet0/1 10.1.1.1
-ip route 172.16.2.1 255.255.255.255 GigabitEthernet0/2 20.2.2.2
 ip route 192.168.1.1 255.255.255.255 GigabitEthernet0/1 10.1.1.1
 ip route 192.168.2.1 255.255.255.255 GigabitEthernet0/2 20.2.2.2
 ip ssh server algorithm authentication password
@@ -332,7 +329,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17023</entry>
             <entry key="config" type="String">!
-! Last configuration change at 12:35:25 UTC Thu Jun 30 2016
+! Last configuration change at 12:19:02 UTC Thu Jun 30 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -437,8 +434,6 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 ip route 10.1.1.0 255.255.255.252 GigabitEthernet0/2 20.2.2.1
-ip route 172.16.1.1 255.255.255.255 GigabitEthernet0/2 20.2.2.1
-ip route 172.16.2.1 255.255.255.255 GigabitEthernet0/1 30.3.3.2
 ip route 192.168.1.1 255.255.255.255 GigabitEthernet0/2 20.2.2.1
 ip route 192.168.2.1 255.255.255.255 GigabitEthernet0/1 30.3.3.2
 ip ssh server algorithm authentication password
@@ -497,7 +492,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17024</entry>
             <entry key="config" type="String">!
-! Last configuration change at 12:33:21 UTC Thu Jun 30 2016
+! Last configuration change at 12:19:58 UTC Thu Jun 30 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -571,7 +566,6 @@ redundancy
 !
 interface Loopback0
  description Loopback
- ip address 172.16.2.1 255.255.255.255 secondary
  ip address 192.168.2.1 255.255.255.255
 !
 interface GigabitEthernet0/0
