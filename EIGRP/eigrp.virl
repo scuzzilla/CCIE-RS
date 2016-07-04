@@ -13,7 +13,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17021</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:18:26 UTC Mon Jul 4 2016
+! Last configuration change at 14:50:09 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -111,9 +111,12 @@ interface GigabitEthernet0/1
 !
 router eigrp 100
  network 10.1.1.0 0.0.0.3
+ network 192.168.1.1 0.0.0.0
  network 192.168.1.2 0.0.0.0
  passive-interface default
  no passive-interface GigabitEthernet0/1
+ no passive-interface Loopback1
+ no passive-interface Loopback0
 !
 ip forward-protocol nd
 !
@@ -176,7 +179,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17022</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:09:26 UTC Mon Jul 4 2016
+! Last configuration change at 14:47:46 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -288,9 +291,6 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip route 30.3.3.0 255.255.255.252 GigabitEthernet0/2 20.2.2.2
-ip route 192.168.1.1 255.255.255.255 GigabitEthernet0/1 10.1.1.1
-ip route 192.168.2.1 255.255.255.255 GigabitEthernet0/2 20.2.2.2
 ip ssh server algorithm authentication password
 !
 !
@@ -347,7 +347,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17023</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:11:23 UTC Mon Jul 4 2016
+! Last configuration change at 14:48:44 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -459,9 +459,6 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip route 10.1.1.0 255.255.255.252 GigabitEthernet0/2 20.2.2.1
-ip route 192.168.1.1 255.255.255.255 GigabitEthernet0/2 20.2.2.1
-ip route 192.168.2.1 255.255.255.255 GigabitEthernet0/1 30.3.3.2
 ip ssh server algorithm authentication password
 !
 !
@@ -518,7 +515,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17024</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:18:52 UTC Mon Jul 4 2016
+! Last configuration change at 14:40:34 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -616,9 +613,11 @@ interface GigabitEthernet0/1
 !
 router eigrp 100
  network 30.3.3.0 0.0.0.3
+ network 192.168.2.1 0.0.0.0
  network 192.168.2.2 0.0.0.0
  passive-interface default
  no passive-interface GigabitEthernet0/1
+ no passive-interface Loopback1
 !
 ip forward-protocol nd
 !
