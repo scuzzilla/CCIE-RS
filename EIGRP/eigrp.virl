@@ -13,7 +13,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17021</entry>
             <entry key="config" type="String">!
-! Last configuration change at 11:42:02 UTC Thu Jun 30 2016
+! Last configuration change at 14:18:26 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -89,10 +89,13 @@ interface Loopback0
  description Loopback
  ip address 192.168.1.1 255.255.255.255
 !
+interface Loopback1
+ ip address 192.168.1.2 255.255.255.255
+!
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.238 255.255.255.0
+ ip address 172.16.1.243 255.255.255.0
  duplex full
  speed auto
  media-type rj45
@@ -104,6 +107,13 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp 100
+ network 10.1.1.0 0.0.0.3
+ network 192.168.1.2 0.0.0.0
+ passive-interface default
+ no passive-interface GigabitEthernet0/1
 !
 ip forward-protocol nd
 !
@@ -166,7 +176,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17022</entry>
             <entry key="config" type="String">!
-! Last configuration change at 12:16:42 UTC Thu Jun 30 2016
+! Last configuration change at 14:09:26 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -245,7 +255,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.239 255.255.255.0
+ ip address 172.16.1.244 255.255.255.0
  duplex full
  speed auto
  media-type rj45
@@ -264,6 +274,14 @@ interface GigabitEthernet0/2
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp 100
+ network 10.1.1.0 0.0.0.3
+ network 20.2.2.0 0.0.0.3
+ passive-interface default
+ no passive-interface GigabitEthernet0/1
+ no passive-interface GigabitEthernet0/2
 !
 ip forward-protocol nd
 !
@@ -329,7 +347,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17023</entry>
             <entry key="config" type="String">!
-! Last configuration change at 12:19:02 UTC Thu Jun 30 2016
+! Last configuration change at 14:11:23 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -408,7 +426,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.240 255.255.255.0
+ ip address 172.16.1.245 255.255.255.0
  duplex full
  speed auto
  media-type rj45
@@ -427,6 +445,14 @@ interface GigabitEthernet0/2
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp 100
+ network 20.2.2.0 0.0.0.3
+ network 30.3.3.0 0.0.0.3
+ passive-interface default
+ no passive-interface GigabitEthernet0/2
+ no passive-interface GigabitEthernet0/1
 !
 ip forward-protocol nd
 !
@@ -492,7 +518,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17024</entry>
             <entry key="config" type="String">!
-! Last configuration change at 12:19:58 UTC Thu Jun 30 2016
+! Last configuration change at 14:18:52 UTC Mon Jul 4 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -568,10 +594,13 @@ interface Loopback0
  description Loopback
  ip address 192.168.2.1 255.255.255.255
 !
+interface Loopback1
+ ip address 192.168.2.2 255.255.255.255
+!
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 172.16.1.236 255.255.255.0
+ ip address 172.16.1.241 255.255.255.0
  duplex full
  speed auto
  media-type rj45
@@ -583,6 +612,13 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp 100
+ network 30.3.3.0 0.0.0.3
+ network 192.168.2.2 0.0.0.0
+ passive-interface default
+ no passive-interface GigabitEthernet0/1
 !
 ip forward-protocol nd
 !
