@@ -704,7 +704,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17025</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:54:07 UTC Tue Jul 5 2016
+! Last configuration change at 15:12:26 UTC Tue Jul 5 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -810,6 +810,7 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
+ip ssh server algorithm authentication password
 !
 !
 !
