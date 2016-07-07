@@ -13,7 +13,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17021</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:45:23 UTC Tue Jul 5 2016
+! Last configuration change at 09:09:19 UTC Wed Jul 6 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -123,8 +123,6 @@ router eigrp 100
  network 192.168.1.2 0.0.0.0
  passive-interface default
  no passive-interface GigabitEthernet0/1
- no passive-interface Loopback1
- no passive-interface Loopback0
  no passive-interface GigabitEthernet0/2
  eigrp router-id 1.1.1.1
 !
@@ -136,6 +134,10 @@ no ip http secure-server
 ip route 0.0.0.0 0.0.0.0 GigabitEthernet0/1 10.1.1.2
 ip ssh server algorithm authentication password
 !
+ip sla 7
+ icmp-echo 192.168.2.1
+ frequency 5
+ip sla schedule 7 life forever start-time now
 !
 !
 !
@@ -528,7 +530,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">17024</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:47:17 UTC Tue Jul 5 2016
+! Last configuration change at 07:46:38 UTC Wed Jul 6 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -638,8 +640,6 @@ router eigrp 100
  network 192.168.2.2 0.0.0.0
  passive-interface default
  no passive-interface GigabitEthernet0/1
- no passive-interface Loopback1
- no passive-interface Loopback0
  no passive-interface GigabitEthernet0/2
  eigrp router-id 4.4.4.4
 !
@@ -704,7 +704,7 @@ end</entry>
         <extensions>
             <entry key="static_serial_port_0" type="Integer">17025</entry>
             <entry key="config" type="String">!
-! Last configuration change at 15:12:26 UTC Tue Jul 5 2016
+! Last configuration change at 09:02:38 UTC Wed Jul 6 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -747,6 +747,7 @@ mmi snmp-timeout 180
 !
 !
 !
+ip domain name virl.info
 ip cef
 no ipv6 cef
 !
