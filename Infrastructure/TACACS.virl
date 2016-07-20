@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<topology xmlns="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.95" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.95/virl.xsd">
+    <extensions>
+        <entry key="AutoNetkit.infrastructure_only" type="Boolean">true</entry>
+        <entry key="management_network" type="String">flat</entry>
+        <entry key="lxc.host.static_ip" type="String">172.16.1.200</entry>
+    </extensions>
+    <node name="lxc-sshd" type="SIMPLE" subtype="lxc-sshd" location="304,235">
+        <extensions>
+            <entry key="static_ip" type="String">172.16.1.177</entry>
+            <entry key="config" type="String">#cloud-config&#xD;
+bootcmd:&#xD;
+- ln -s -t /etc/rc.d /etc/rc.local&#xD;
+hostname: lxc-sshd&#xD;
+manage_etc_hosts: true&#xD;
+runcmd:&#xD;
+- systemctl start rc-local&#xD;
+- sed -i '/^\s*PasswordAuthentication\s\+no/d' /etc/ssh/sshd_config&#xD;
+- echo "UseDNS no" &gt;&gt; /etc/ssh/sshd_config&#xD;
+- service ssh restart&#xD;
+- service sshd restart&#xD;
+users:&#xD;
+- default&#xD;
+- gecos: User configured by VIRL Configuration Engine 0.23.7&#xD;
+  lock-passwd: false&#xD;
+  name: cisco&#xD;
+  plain-text-passwd: cisco&#xD;
+  shell: /bin/bash&#xD;
+  ssh-authorized-keys:&#xD;
+  - VIRL-USER-SSH-PUBLIC-KEY&#xD;
+  sudo: ALL=(ALL) ALL&#xD;
+write_files:&#xD;
+- path: /etc/systemd/system/dhclient@.service&#xD;
+  content: |&#xD;
+    [Unit]&#xD;
+    Description=Run dhclient on %i interface&#xD;
+    After=network.target&#xD;
+    [Service]&#xD;
+    Type=oneshot&#xD;
+    ExecStart=/sbin/dhclient %i -pf /var/run/dhclient.%i.pid -lf /var/lib/dhclient/dhclient.%i.lease&#xD;
+    RemainAfterExit=yes&#xD;
+  owner: root:root&#xD;
+  permissions: '0644'&#xD;
+</entry>
+            <entry key="static_serial_port_0" type="Integer">17001</entry>
+        </extensions>
+        <interface id="0" name="eth1"/>
+    </node>
+    <node name="R1" type="SIMPLE" subtype="IOSv" location="569,312">
+        <extensions>
+            <entry key="static_ip" type="String">172.16.1.178</entry>
+            <entry key="config" type="String">! IOS Config generated on 2016-07-20 11:38&#xD;
+! by autonetkit_0.23.2&#xD;
+!&#xD;
+hostname R1&#xD;
+boot-start-marker&#xD;
+boot-end-marker&#xD;
+!&#xD;
+vrf definition Mgmt-intf&#xD;
+!&#xD;
+ address-family ipv4&#xD;
+ exit-address-family&#xD;
+ !&#xD;
+ address-family ipv6&#xD;
+ exit-address-family&#xD;
+!&#xD;
+!&#xD;
+!&#xD;
+no aaa new-model&#xD;
+!&#xD;
+!&#xD;
+ip cef&#xD;
+ipv6 unicast-routing&#xD;
+ipv6 cef&#xD;
+!&#xD;
+!&#xD;
+service timestamps debug datetime msec&#xD;
+service timestamps log datetime msec&#xD;
+no service password-encryption&#xD;
+no service config&#xD;
+enable password cisco&#xD;
+ip classless&#xD;
+ip subnet-zero&#xD;
+no ip domain lookup&#xD;
+ip domain name virl.info&#xD;
+crypto key generate rsa modulus 768&#xD;
+ip ssh server algorithm authentication password&#xD;
+username cisco privilege 15 secret cisco&#xD;
+line vty 0 4&#xD;
+ transport input ssh telnet&#xD;
+ exec-timeout 720 0&#xD;
+ password cisco&#xD;
+ login local&#xD;
+line con 0&#xD;
+ password cisco&#xD;
+!&#xD;
+no cdp run&#xD;
+!&#xD;
+!&#xD;
+interface Loopback0&#xD;
+  description Loopback&#xD;
+  no ip address&#xD;
+!&#xD;
+interface GigabitEthernet0/0&#xD;
+  description OOB Management&#xD;
+  vrf forwarding Mgmt-intf&#xD;
+  ip address 172.16.1.178 255.255.255.0&#xD;
+  duplex full&#xD;
+  speed auto&#xD;
+  no shutdown&#xD;
+!&#xD;
+interface GigabitEthernet0/1&#xD;
+  description to lxc-sshd&#xD;
+  no ip address&#xD;
+  duplex full&#xD;
+  speed auto&#xD;
+  no shutdown&#xD;
+!&#xD;
+!&#xD;
+!&#xD;
+!&#xD;
+!&#xD;
+end</entry>
+            <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
+            <entry key="static_serial_port_0" type="Integer">17002</entry>
+        </extensions>
+        <interface id="0" name="GigabitEthernet0/1"/>
+    </node>
+    <annotations/>
+    <connection dst="/virl:topology/virl:node[2]/virl:interface[1]" src="/virl:topology/virl:node[1]/virl:interface[1]"/>
+</topology>
