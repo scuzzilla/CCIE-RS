@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<topology xmlns="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.95" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.95/virl.xsd">
+    <node name="server-1" type="SIMPLE" subtype="server" location="341,226" vmImage="server_unmanaged-obsd [39e746d9-f0ed-4216-8f27-b4051dece91c]"/>
+    <annotations/>
+</topology>
