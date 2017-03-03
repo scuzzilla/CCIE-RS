@@ -12,7 +12,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_ip" type="String">172.16.1.61</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:34:03 UTC Thu Mar 2 2017
+! Last configuration change at 14:09:27 UTC Fri Mar 3 2017 by cisco
 !
 version 15.2
 service timestamps debug datetime msec
@@ -54,6 +54,7 @@ spanning-tree mode pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+no cdp run
 !
 ! 
 !
@@ -74,21 +75,18 @@ interface Loopback0
 !
 interface GigabitEthernet0/1
  description to SW2
- switchport access vlan 2
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet0/2
  description to SW2
- switchport access vlan 2
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet0/3
  description to SW3
- switchport access vlan 2
  switchport mode access
  media-type rj45
  negotiation auto
@@ -102,63 +100,60 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet1/0
  description to SW3
- switchport access vlan 2
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet1/1
  description to SW4
- switchport access vlan 2
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet1/2
  description to SW4
- switchport access vlan 2
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet1/3
  description to R1
- switchport access vlan 2
+ switchport access 
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet2/0
  description to R2
- switchport access vlan 2
+ switchport access 
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet2/1
  description to R3
- switchport access vlan 2
+ switchport access 
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet2/2
  description to R4
- switchport access vlan 2
+ switchport access 
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet2/3
  description to R5
- switchport access vlan 2
+ switchport access 
  switchport mode access
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet3/0
  description to R6
- switchport access vlan 2
+ switchport access 
  switchport mode access
  media-type rj45
  negotiation auto
@@ -170,6 +165,7 @@ no ip http secure-server
 !
 !
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -210,8 +206,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 !
 end</entry>
@@ -234,7 +230,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.62</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 18:32:41 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 14:14:31 UTC Fri Mar 3 2017 by cisco
 !
 version 15.2
 service timestamps debug datetime msec
@@ -276,6 +272,7 @@ spanning-tree mode pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+no cdp run
 !
 ! 
 !
@@ -294,10 +291,6 @@ interface Loopback0
  description Loopback
  no ip address
 !
-interface Port-channel10
- no switchport
- ip address 1.1.1.2 255.255.255.252
-!
 interface GigabitEthernet0/3
  description to SW4
  switchport mode access
@@ -310,23 +303,19 @@ interface GigabitEthernet0/0
  no switchport
  vrf forwarding Mgmt-intf
  ip address 172.16.1.62 255.255.255.0
- duplex full
- no negotiation auto
- no cdp enable
+ negotiation auto
 !
 interface GigabitEthernet0/1
  description to SW1
  no switchport
  no ip address
  negotiation auto
- channel-group 10 mode on
 !
 interface GigabitEthernet0/2
  description to SW1
  no switchport
  no ip address
  negotiation auto
- channel-group 10 mode on
 !
 interface GigabitEthernet1/0
  description to SW4
@@ -372,7 +361,7 @@ interface GigabitEthernet2/1
 !
 interface GigabitEthernet2/2
  description to R4
- switchport access vlan 2
+ switchport access 
  switchport mode access
  shutdown
  media-type rj45
@@ -380,7 +369,7 @@ interface GigabitEthernet2/2
 !
 interface GigabitEthernet2/3
  description to R5
- switchport access vlan 2
+ switchport access 
  switchport mode access
  shutdown
  media-type rj45
@@ -388,7 +377,7 @@ interface GigabitEthernet2/3
 !
 interface GigabitEthernet3/0
  description to R6
- switchport access vlan 2
+ switchport access 
  switchport mode access
  shutdown
  media-type rj45
@@ -399,9 +388,9 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
-ip ssh version 2
 !
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -442,8 +431,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 !
 end</entry>
@@ -466,7 +455,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.63</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 16:07:47 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 14:13:33 UTC Fri Mar 3 2017 by cisco
 !
 version 15.2
 service timestamps debug datetime msec
@@ -508,6 +497,7 @@ spanning-tree mode pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+no cdp run
 !
 ! 
 !
@@ -586,9 +576,9 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
-ip ssh version 2
 !
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -629,8 +619,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 !
 end</entry>
@@ -649,7 +639,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.64</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 15:18:27 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 14:14:12 UTC Fri Mar 3 2017 by cisco
 !
 version 15.2
 service timestamps debug datetime msec
@@ -691,6 +681,7 @@ spanning-tree mode pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+no cdp run
 !
 ! 
 !
@@ -769,9 +760,9 @@ ip forward-protocol nd
 no ip http server
 no ip http secure-server
 !
-ip ssh version 2
 !
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -812,8 +803,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 !
 end</entry>
@@ -832,7 +823,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.76</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 09:37:58 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:53:10 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -886,7 +877,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$vldH$Mxq5vPZ9yjtDemd.m4Fsp/
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -932,9 +923,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -975,8 +966,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -990,7 +981,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.75</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:35:39 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:53:16 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1044,7 +1035,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$ec52$pSB9FbkKKIZLqdXrz2UYa0
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -1090,9 +1081,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -1133,8 +1124,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -1148,7 +1139,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.74</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 11:39:04 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:52:52 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1202,7 +1193,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$3BCQ$8t5r5SBUdRMGoYwpjO1Xo1
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -1248,9 +1239,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -1291,8 +1282,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -1306,7 +1297,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.73</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:44:52 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:52:26 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1360,7 +1351,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$0sMZ$OaJ6iGGvs0Bz9HK4vEXOM.
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -1406,9 +1397,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -1449,8 +1440,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -1464,7 +1455,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.72</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 11:55:25 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:52:22 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1518,7 +1509,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$D0X7$voRgd4cmOLkyME62c95/l/
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -1564,9 +1555,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -1607,8 +1598,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -1622,7 +1613,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.71</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 04:02:44 UTC Thu Mar 2 2017 by cisco
+! Last configuration change at 13:52:22 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1676,7 +1667,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$CH8i$i6IKTl3qUQtoC0THcKtWY0
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -1722,9 +1713,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -1765,8 +1756,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -1780,7 +1771,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.77</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:56:34 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:53:31 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1834,7 +1825,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$f/F0$4K4xvfg4Av3YtLIXIN.Ym0
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -1873,9 +1864,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -1916,8 +1907,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -1930,7 +1921,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.78</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:03:51 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:53:30 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1984,7 +1975,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$C3Eo$pUFNLpusDrojP8pxPOriM1
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -2023,9 +2014,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -2066,8 +2057,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -2080,7 +2071,7 @@ end</entry>
             <entry key="static_ip" type="String">172.16.1.79</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="config" type="String">!
-! Last configuration change at 07:51:41 UTC Wed Mar 1 2017 by cisco
+! Last configuration change at 13:53:30 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2134,7 +2125,7 @@ multilink bundle-name authenticated
 username cisco privilege 15 secret 5 $1$FPyF$vqY1MCLbEdDfHpBw3nvsb1
 !
 redundancy
-!
+no cdp run
 !
 ! 
 !
@@ -2173,9 +2164,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -2216,8 +2207,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
@@ -2230,7 +2221,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_ip" type="String">172.16.1.80</entry>
             <entry key="config" type="String">!
-! Last configuration change at 14:10:16 UTC Thu Mar 2 2017 by cisco
+! Last configuration change at 14:21:24 UTC Fri Mar 3 2017 by cisco
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2247,8 +2238,6 @@ vrf definition Mgmt-intf
  !
  address-family ipv4
  exit-address-family
-!
-vrf definition Mgmt0intf
 !
 enable password cisco
 !
@@ -2287,6 +2276,7 @@ username cisco privilege 15 secret 5 $1$cyyU$Zp5BT7ggRp5GLUnabCyiH/
 !
 redundancy
 !
+no cdp run
 !
 ! 
 !
@@ -2309,14 +2299,14 @@ interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
  ip address 172.16.1.80 255.255.255.0
- duplex full
+ duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/1
  description to SW4
  no ip address
- duplex full
+ duplex auto
  speed auto
  media-type rj45
 !
@@ -2325,9 +2315,9 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip ssh version 2
-ip ssh server algorithm authentication password
+
 !
+logging host 172.16.1.110 vrf Mgmt-intf
 !
 !
 !
@@ -2368,8 +2358,8 @@ line vty 0 4
  exec-timeout 720 0
  password cisco
  login local
- transport input telnet ssh
- transport output telnet ssh
+ transport input telnet
+ transport output telnet
 !
 no scheduler allocate
 !
